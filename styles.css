@@ -1,0 +1,15 @@
+body{
+  background-color: cornsilk;
+}
+.d-flex button{
+  margin: 1.5em 0.6em;
+  padding: 0.5em 2.4em;
+}
+
+.d-flex table {
+  margin: 1em 10em;
+}
+td.btnedit {
+  color:lightsalmon;
+  cursor: pointer;
+}
