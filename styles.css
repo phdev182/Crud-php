@@ -12,4 +12,15 @@ body{
 td.btnedit {
   color:lightsalmon;
   cursor: pointer;
+  text-align: center;
+}
+.success{
+  background-color: lightgreen;
+  padding: 1em;
+  text-align: center;
+}
+.error{
+  background-color: tomato;
+  padding: 1em;
+  text-align: center;
 }

@@ -11,9 +11,9 @@ function inputElement($icon, $placehouder, $name, $value){
   ";
   echo $ele;
 }
-function buttonElement($btnid, $btnstyle,$text,$attr){
+function buttonElement($btnid, $btnstyle,$text,$name,$attr){
   $btn = "
-  <button type=\"button\" id='$btnid' '$attr' class='$btnstyle'>$text</button>
+  <button name='$name' '$attr' class='$btnstyle' id='$btnid'>$text</button>
   ";
   echo $btn;
 }

@@ -1,6 +1,7 @@
 <?php
 
-require_once("../crud/php/component.php")
+require_once("../crud/php/component.php");
+require_once("../crud/php/operation.php");
 ?>
 
 <!DOCTYPE html>
@@ -24,25 +25,30 @@ require_once("../crud/php/component.php")
   
   <div class="d-flex justify-content-center">
     <form action=""method="post"class="w-50 ">
-      <div class="py-2">
+    <div class="row pt-2">
+    <div class="col">
       <?php inputElement($icon="<i class='fa fa-id-card'></i>", $placehouder="ID", $name="produto_id", $value="");?>
       </div>
+      <div class="col">
+      <?php inputElement($icon="<i class='fa fa-archive' aria-hidden='true'></i>", $placehouder="Quantidade", $name="quantidade", $value="");?>
+      </div>
+    </div>
       <div class="pt-2">
       <?php inputElement($icon="<i class='fa fa-archive' aria-hidden='true'></i>", $placehouder="Produto", $name="produto", $value="");?>
       </div>
       <div class="row pt-2">
         <div class="col">
-      <?php inputElement($icon="<i class='fa fa-cubes'></i>", $placehouder="Tipo", $name="Tipo", $value="");?> 
+      <?php inputElement($icon="<i class='fa fa-cubes'></i>", $placehouder="Marca", $name="marca", $value="");?> 
       </div>
       <div class="col">
-      <?php inputElement($icon="<i class=\"fa fa-bitcoin\"></i>", $placehouder="Preço", $name="Preço", $value="");?> 
+      <?php inputElement($icon="<i class=\"fa fa-bitcoin\"></i>", $placehouder="Preço", $name="preco", $value="");?> 
       </div>
       </div>
       <div class="d-flex justify-content-center">
-      <?php buttonElement($btnid="Criar", $styleClass="btn btn-success", $text="<i class='fa fa-plus'></i>",$attr="dat-toggle='tooltip'data-placement='bottom'title='Criar'");?>
-      <?php buttonElement($btnid="Read", $styleClass="btn btn-primary", $text="<i class=\"fa fa-edit\"></i>",$attr="dat-toggle='tooltip'data-placement='bottom'title='Read'");?>
-      <?php buttonElement($btnid="Atualizar", $styleClass="btn btn-info", $text="<i class=\"fa fa-retweet\"></i>",$attr="dat-toggle='tooltip'data-placement='bottom'title='Atualizar'");?>
-      <?php buttonElement($btnid="Deletar", $styleClass="btn btn-danger", $text="<i class=\"fa fa-trash\"></i>",$attr="dat-toggle='tooltip'data-placement='bottom'title='Deletar'");?>
+      <?php buttonElement($btnid="btn-create", $styleClass="btn btn-success", $text="<i class='fa fa-plus'></i>",$name='create',$attr="dat-toggle='tooltip'data-placement='buttom'title='Create'");?>
+      <?php buttonElement($btnid="btn-read", $styleClass="btn btn-primary", $text="<i class=\"fa fa-edit\"></i>",$name='read',$attr="dat-toggle='tooltip'data-placement='buttom'title='Read'");?>
+      <?php buttonElement($btnid="btn-update", $styleClass="btn btn-info", $text="<i class=\"fa fa-retweet\"></i>",$name='update',$attr="dat-toggle='tooltip'data-placement='buttom'title='Update'");?>
+      <?php buttonElement($btnid="btn-delete", $styleClass="btn btn-danger", $text="<i class=\"fa fa-trash\"></i>",$name='delete',$attr="dat-toggle='tooltip'data-placement='buttom'title='Delete'");?>
       </div>
     </form>
   </div>
