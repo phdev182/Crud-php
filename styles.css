@@ -1,18 +1,16 @@
 body{
-  background-color: cornsilk;
+  background-color: white;
 }
 .d-flex button{
   margin: 1.5em 0.6em;
   padding: 0.5em 2.4em;
 }
-
 .d-flex table {
   margin: 1em 10em;
 }
-td.btnedit {
+td.btnedit{
   color:lightsalmon;
   cursor: pointer;
-  text-align: center;
 }
 .success{
   background-color: lightgreen;

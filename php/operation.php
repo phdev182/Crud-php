@@ -10,6 +10,10 @@ if(isset($_POST["create"])){
   createData();
 }
 
+if(isset($_POST["update"])){
+  updateData();
+}
+
 function createData() {
   $produto = textBoxValue($value="produto");
   $marca = textBoxValue($value="marca");
@@ -47,4 +51,39 @@ function textBoxValue($value){
 function textNode($classname, $msg){
   $element = "<h6 class='$classname'>$msg</h6>";
   echo $element;
+}
+
+//get data from mysql database
+function getData(){
+  $sql = "SELECT*FROM produtos";
+
+  $result = mysqli_query($GLOBALS['con'],$sql);
+
+  if(mysqli_num_rows($result)>0){
+    return $result;
+  }
+}
+
+//update data
+
+function updateData(){
+    $produtoId = textBoxValue($value="id");
+    $produto = textBoxValue($value="produto");
+    $marca = textBoxValue($value="marca");
+    $quantidade = textBoxValue($value="quantidade");
+    $preco = textBoxValue($value="preco");
+
+    if($produto&&$marca&&$preco&&$quantidade){
+      $sql ="UPDATE produtos SET produto_nome='$produto',marca='$marca',preco='$preco',quantidade='$quantidade' WHERE id='$produtoId';
+        ";
+        
+        if(mysqli_query($GLOBALS['con'],$sql)){
+          textNode($classname="success",$msg="Dados atualizados com sucesso");
+        }else{
+          textNode($classname="error",$msg="Dados não atualizados");
+        }
+
+    }else{
+      textNode($classname="error",$msg="Selecione os dados utilizando o icone Editar");
+    }
 }
