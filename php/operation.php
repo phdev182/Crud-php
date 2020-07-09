@@ -14,6 +14,14 @@ if(isset($_POST["update"])){
   updateData();
 }
 
+if(isset($_POST['delete'])){
+  deleteRecord();
+}
+
+if(isset($_POST['deleteall'])){
+  deleteAll();
+}
+
 function createData() {
   $produto = textBoxValue($value="produto");
   $marca = textBoxValue($value="marca");
@@ -86,4 +94,54 @@ function updateData(){
     }else{
       textNode($classname="error",$msg="Selecione os dados utilizando o icone Editar");
     }
+}
+
+//Delete Data
+function deleteRecord(){
+  $produtoId = (int)textBoxValue($value="id");
+
+  $sql ="DELETE FROM produtos Where id=$produtoId";
+  if(mysqli_query($GLOBALS['con'],$sql)){
+    textNode($classname="success",$msg="Arquivo deletado com sucesso...!");
+  }else{
+    textNode($classname="error",$msg="Erro ao deletar gravação...!");
+  }
+}
+
+//botão deletar tudo
+function deleteBtn(){
+  $result=getData();
+  $i=0;
+  if($result){
+    while($row=mysqli_fetch_assoc($result)){
+      $i++;
+      if($i>2){
+        buttonElement($btnid="btn-deleteall",$btnstyle="btn btn-danger",$text="<i class='fa fa-trash'></i> Deletar Tudo",$name="deleteall", $attr="");
+        return;
+      }
+    }
+  }
+}
+
+//delete all
+function deleteAll(){
+  $sql="DROP TABLE produtos";
+  if(mysqli_query($GLOBALS['con'],$sql)){
+    textNode($classname="success",$msg="Todos os dados deletados com sucesso...!");
+    Createdb();
+  }else{
+    textNode($classname="error",$msg="Erro all deletar todos os arquivos...!");
+  }
+}
+
+//set id to textbox
+function setID(){
+  $getid=getData();
+  $id=0;
+  if($getid){
+    while($row=mysqli_fetch_assoc($getid)){
+      $id=$row['id'];
+    }
+  }
+  return($id+1);
 }

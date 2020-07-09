@@ -26,7 +26,7 @@ require_once("../crud/php/operation.php");
     <form action=""method="post"class="w-50 ">
     <div class="row pt-2">
     <div class="col">
-      <?php inputElement($icon="<i class='fa fa-id-card'></i>", $placehouder="ID", $name="id", $value="");?>
+      <?php inputElement($icon="<i class='fa fa-id-card'></i>", $placehouder="ID", $name="id", setID());?>
       </div>
       <div class="col">
       <?php inputElement($icon="<i class='fa fa-archive' aria-hidden='true'></i>", $placehouder="Quantidade", $name="quantidade", $value="");?>
@@ -48,6 +48,7 @@ require_once("../crud/php/operation.php");
       <?php buttonElement($btnid="btn-read", $styleClass="btn btn-primary", $text="<i class=\"fa fa-retweet\"></i>",$name='read',$attr="dat-toggle='tooltip'data-placement='buttom'title='Read'");?>
       <?php buttonElement($btnid="btn-update", $styleClass="btn btn-info", $text="<i class=\"fa fa-edit\"></i>",$name='update',$attr="dat-toggle='tooltip'data-placement='buttom'title='Update'");?>
       <?php buttonElement($btnid="btn-delete", $styleClass="btn btn-danger", $text="<i class=\"fa fa-trash\"></i>",$name='delete',$attr="dat-toggle='tooltip'data-placement='buttom'title='Delete'");?>
+      <?php deleteBtn()?>
       </div>
     </form>
   </div>

@@ -1,8 +1,10 @@
 
+let id = $("input[name*='id']");
+id.atrr("readonly","readonly");
+
 $(".btnedit").click(e =>{
   let textvalues = displayData(e);
 
-  let id = $("input[name*='id']");
   let prod = $("input[name*='produto']");
   let marca = $("input[name*='marca']");
   let quant = $("input[name*='quantidade']");
